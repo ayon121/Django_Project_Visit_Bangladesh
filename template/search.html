@@ -1,0 +1,64 @@
+<!doctype html>
+{% load static %}
+<html>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name= "viewport" content =" width = device-width , initial-scale = 1.0">
+        <title> Search Result</title>
+        <style>
+            .container {
+                text-align : center ;
+            }
+        </style>
+    </head>
+
+    <body style="background-color:black;">
+        <div class= "container" >
+            <h1 style="background-color:white;"> Here is Your Search Result</h1>
+            {% for  desti  in  destination%}
+            <div class="card">
+                <div class="card-header">
+                Best Match For Your Search - {{searched}}
+                </div>
+                <div class="card-body">
+                <h5 class="card-title">{{desti.name}}</h5> 
+                <p class="card-text">
+                    {{desti.desc}}
+                    <br>
+                    Visit This City For - {{desti.price}}$  <br> 
+                
+                
+                </p>
+                <a href="{{desti.post_url}}" class="btn btn-primary">View Post</a>
+                </div>
+            </div>
+            {%endfor%}
+            <br>
+            {% for  destiprice  in  destinationprice%}
+            <div class="card">
+                <div class="card-header">
+                Best Match For Your Search -{{searchedprice}}$
+                </div>
+                <div class="card-body">
+                <h5 class="card-title">{{destiprice.name}}</h5> 
+                {{destiprice.desc}}
+                <br>
+                <p class="card-text">Visit This City For - {{destiprice.price}}$  <br> 
+                
+                
+                </p>
+                <a href="{{destiprice.post_url}}" class="btn btn-primary">View Post</a>
+                </div>
+        
+            </div>
+            <br>
+            {%endfor%}
+        </div>
+        
+    </body>
+</html>
+
+
+

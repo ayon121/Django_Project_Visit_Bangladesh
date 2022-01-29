@@ -1,0 +1,45 @@
+{% load static %}
+
+<html>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <head>
+        <meta charset= "UTF-8">
+        <meta name= "viewport" content= "width = device-width ,initial-scale= 1.0"> 
+		
+		<style>
+			.container{
+				test-align : center;
+			}
+		</style>
+		
+	</head>
+    <body style="background-color:black;">
+        
+        {% if user.is_authenticated %}
+            <div class="card-header">
+                <h1 style="background-color:white;">Create Post</h1>
+            </div>
+            <br>
+            <div class= "container" class="input-group mb-3" >
+                <form method = "POST">
+                    {% csrf_token %}  
+                    {{form.media}}  
+                    {{form.as_p}}
+                    <button class="btn btn-primary">Post </button>
+
+                </form>
+            </div>
+            <script>
+                var name = "{{user.id}}" ;
+                document.getElementById('author').value 
+                = name;
+            
+            </script>
+        {%else%}
+            <p> You Are Not Allowed Here </p>
+
+        {% endif%}
+
+    </body>
+<html>
+

@@ -1,0 +1,39 @@
+{% load static %}
+
+<html>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <head>
+        <meta charset= "UTF-8">
+        <meta name= "viewport" content= "width = device-width ,initial-scale= 1.0"> 
+		
+		<style>
+			.container{
+				test-align : center;
+			}
+		</style>
+		
+	</head>
+    <body style="background-color:black;">
+        {% if user.is_authenticated %}
+            {% if user.id == post.author.id %}
+            <div class="card-header">
+                <h1 style="background-color:white;"> Update Post</h1>
+            </div>
+            <br>
+            <div class= "container" >
+                <form method = "POST">
+                    {% csrf_token %} 
+                    {{form.media}}   
+                    {{form.as_p}}
+                    <button class="btn btn-primary">Update </button>
+
+                </form>
+            </div>
+            {% else%}
+            <p> You are Not Allowed Here </p>
+            {% endif %}
+        {%endif%}
+
+    </body>
+<html>
+

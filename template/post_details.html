@@ -1,0 +1,73 @@
+{% load static %}
+<html>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <body style="background-color:black;">
+        <ul>
+            <h1 style="background-color:white;">Details</h1>
+
+            
+            {{post.body |safe}} 
+            <br>
+            <br>
+            <p>Author:  {{post.author.profile.Fullname}} </p>
+        
+            <br>
+            {% if user.is_authenticated %}
+                {% if user.id == post.author.id %}
+                <button type="button" class="btn btn-outline-primary"><a href = "{% url 'updatepost' post.pk %}" > Edit </a></button>
+            
+                <button type="button" class="btn btn-outline-primary"><a href = "{% url 'deletepost' post.pk %}" > Delete</a></button>
+                {% endif %}
+            {%endif%}
+
+            
+            <button type="button" class="btn btn-outline-primary"><a href = "{% url 'allposts'%}" > Back </a></button>
+            <br> <br>
+
+            {% if user.is_authenticated %}
+            <form action= "{% url 'likepost' post.pk %}" method= "POST">
+                {% csrf_token %}
+
+                {% if liked %}
+                    <button type= "submit" , name= "post_id" , value = "{{post.id}}" , class="btn btn-outline-primary">{{total_likes }} Unlike </button>
+
+                {% else %}
+                    <button type= "submit" , name= "post_id" , value = "{{post.id}}" , class="btn btn-outline-primary">{{total_likes }} Like </button>
+                {%endif %}
+                
+            </form>  
+            {%else%}
+                    <b>{{total_likes }} likes </b>
+                    <small ><b>  | | Must be Login to Like </b></small>         
+            {% endif %}
+
+            {% if user.is_authenticated %}
+                <h1  style="background-color:white;"> Comments </h1>
+                {% if  not post.comments.all%}
+                    No comments Yet......<a href = "{% url 'comment' post.pk%}"> Add one</a>
+                {% else%}
+                    {%for comment in post.comments.all%}
+                        <strong>
+                            {{comment.name.profile.Fullname}} | |
+                            {{comment.comment_date}}
+                        </strong>
+                        <br>
+                            {{comment.body}}
+
+                        <br>
+                        <br>
+                    {% endfor %}
+                    <a href = "{% url 'comment' post.pk%}">Add Comment</a>
+                {% endif%}
+            {% endif %}
+            <br>
+            <br>
+        </ul>   
+    </body>
+</html>
+
+
+
+
+
+

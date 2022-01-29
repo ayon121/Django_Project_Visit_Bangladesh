@@ -1,0 +1,38 @@
+{% load static %}
+
+<html>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <head>
+        <meta charset= "UTF-8">
+        <meta name= "viewport" content= "width = device-width ,initial-scale= 1.0"> 
+		
+		<style>
+			.container{
+				test-align : center;
+			}
+		</style>
+		
+	</head>
+
+    <body  style="background-color:black;">
+        {% if user.is_authenticated %}
+                {% if user.id == post.author.id %}
+                <h2>Delete Post</h2>
+            <br>
+            <div class= "container" >
+                <form method = "POST">
+                    {% csrf_token %}
+                    <h4  style="background-color:white;"><b>Delete This Post</b></h4> 
+                    <br>
+                    <small> <b >Are You Sure? </b></small>
+                    <br>
+                    <button class="btn btn-danger">Delete</button>
+
+                </form>
+            
+            </div>
+            {% else %}
+                <p> You are not allowed here </p>
+                
+            {% endif %}
+        {%endif%}

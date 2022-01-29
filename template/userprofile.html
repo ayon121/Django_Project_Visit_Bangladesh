@@ -1,0 +1,115 @@
+{% load static %}
+<body  style="background-color:black;">
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+<div class="container">
+    <div class="row gutters">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="account-settings">
+                        <div class="user-profile">
+
+                            <div class="user-avatar">
+                                {% if user.profile.image %}
+                                <img src="{{user.profile.image.url}}" alt="Upload Your Image">
+
+                                {% else %}
+                                <img src="{% static 'images/default.png' %}" alt="Upload Your Image">
+
+                                {% endif %}
+
+
+                            </div>
+                            <h5 class="user-name">{{user_name}}</h5>
+                            <h6 class="user-email">{{user_email}}</h6>
+                        </div>
+                    
+                        <div class="about">
+                            <h5 class="mb-2 text-primary">About</h5>
+                            <p>{{user_bio}}</p>
+                        
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+            <div class="card h-100">
+                <div class="card-body">
+                    <div class="row gutters">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h6 class="mb-3 text-primary">Personal Details</h6>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <b><mark><label for="Fullname">User Name :</label></mark></b><br>
+                                <b><h4>{{user_name}}</h4></b>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <b><mark><label for="eMail">Email :</label></mark></b>
+                                <b><h4>{{user_email}}</h4></b>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <b><mark><label for="phone">Full Name :</label></mark></b><br>
+                                <b><h4>{{user_fullname}}</h4></b>
+                                
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <b><mark><label for="website">Phone Number :</label></mark></b>
+                                <b><h4>{{user_phone}}</h4></b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gutters">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <h6 class="mb-3 text-primary">Address</h6>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <b><mark><label for="Street">Street :</label></mark></b>
+                                <b><h5>{{user_street}}</h5></b>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <b><mark><label for="ciTy">City :</label></mark></b>
+                                <b><h5>{{user_city}}</h5></b>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <b><mark><label for="sTate">State :</label></mark></b>
+                                <b><h5>{{user_sate}}</h5></b>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <b><mark><label for="zIp">Zip Code :</label></mark></b> <br>
+                                <b><h5>{{user_zip}}</h5></b>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="row gutters">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="text-right">
+                                <a href={{link2}}><button type="button" class="btn btn-primary">Change Password</button> </a>
+                                <a href={{link}}><button type="button" class="btn btn-primary">Edit Profile</button> </a>
+                                <a href={{link1}}><button type="button" class="btn btn-primary"> Home</button> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

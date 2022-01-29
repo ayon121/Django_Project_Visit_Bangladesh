@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{%load crispy_forms_tags%}
+{% load static %}
+{% static "images" as baseUrl %}
+<html>
+	<link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <head>
+        <meta charset= "UTF-8">
+        <meta name= "viewport" content= "width = device-width ,initial-scale= 1.0"> 
+		<title> Register </title>
+		
+		<style>
+			.container{
+				test-align : center;
+			}
+		</style>
+		
+	</head>
+	<body  style="background-color:black;">
+	
+		<div class= "container">
+			<h1 style="background-color:white;">Register</h1> 
+			<form action= " " method= "post" ,enctype="multipart/form-data">
+				{% csrf_token %}
+				{{form |crispy}} <br>
+				<input type= "submit" class="btn btn-primary" value= "Register"> 
+		
+			</form>
+			<br>
+			<h4>			Become A Part Of Our Traveling Group	</h4>
+			<br> 
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
