@@ -1,0 +1,15 @@
+#Need to install all the packages
+
+#Run all this command
+
+pip install django
+
+pip install pillow
+
+pip install django-admin-interface
+
+pip install django-crispy-forms
+
+pip install django-ckeditor
+
+pip install psycopg2
