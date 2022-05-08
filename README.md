@@ -4,7 +4,7 @@ In the frontend I used HTML,CSS,JavaScript,Bootstrap.
 
 This website have User Registration,Login,User Profile,Edit Profile ,Change Password, Full Dynamic Home Page,Contact Form.
 
-This website looks like this picture in the frontend.
+This website looks like this pictures in the frontend.
 
 ![pic1](https://user-images.githubusercontent.com/84730254/167310335-a7dee1be-a4ef-4a75-bd34-39a00bdcfba5.JPG)
 
@@ -27,7 +27,7 @@ This website looks like this picture in the frontend.
 
 
 
-This website looks like this picture in the backtend.
+This website looks like this pictures in the backtend.
 
 ![pic10](https://user-images.githubusercontent.com/84730254/167312046-346a0581-d4e7-46a6-8255-5a36f3c602e7.JPG)
 
